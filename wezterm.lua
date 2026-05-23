@@ -42,7 +42,7 @@ config.macos_window_background_blur = 10
 config.color_scheme = color_scheme
 
 config.use_fancy_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
+--config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
 
 -- タブの色をカラースキームと同じにする
