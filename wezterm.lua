@@ -55,4 +55,13 @@ config.colors = {
   }
 }
 
+local keys = {}
+
+if is_mac() then
+  -- macでバックスラッシュが入力できない問題の対策
+  table.insert(keys, { key = '¥', mods = 'OPT', action = wezterm.action.SendKey { key = '\\', mods = 'NONE' }})
+end
+
+config.keys = keys
+
 return config
