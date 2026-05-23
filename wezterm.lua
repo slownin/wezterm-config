@@ -3,15 +3,37 @@ local config = wezterm.config_builder()
 
 local color_scheme = 'Solarized Light (Gogh)'
 
+local function is_mac()
+  return wezterm.target_triple:find("apple%-darwin") ~= nil
+end
+
+local function is_linux()
+  return wezterm.target_triple:find("linux") ~= nil
+end
+
+local function is_windows()
+  return wezterm.target_triple:find("windows") ~= nil
+end
+
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 
-config.font_size = 16
-config.font = wezterm.font_with_fallback({
-  { family = "SauceCodePro Nerd Font", weight = "Regular" },
+if is_mac() then
+  config.font_size = 18
+  config.font = wezterm.font_with_fallback({
+    { family = "SauceCodePro Nerd Font", weight = "Regular" },
+    { family = "Hiragino Sans", weight = "Regular", scale = 1.0 }
+  })
+elseif is_linux() then
+elseif is_windows() then
+  config.font_size = 14
+  config.font = wezterm.font_with_fallback({
+    { family = "JetBrains Mono", weight = "Regular" },
+    { family = "BIZ UDGothic", weight = "Regular" },
+    { family = "Segoe UI Emoji", weight = "Regular" },
+  })
+end
 
-  { family = "Hiragino Sans", weight = "Regular", scale = 1.0 }
-})
 
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
