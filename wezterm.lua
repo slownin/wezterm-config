@@ -34,6 +34,7 @@ elseif is_windows() then
   })
 end
 
+config.use_ime = true
 
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
