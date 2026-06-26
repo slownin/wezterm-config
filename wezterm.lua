@@ -3,29 +3,29 @@ local config = wezterm.config_builder()
 
 config.colors = require 'colors.kanagawa-lotus'
 
-local function is_mac()
+local function macp()
   return wezterm.target_triple:find("apple%-darwin") ~= nil
 end
 
-local function is_linux()
+local function linuxp()
   return wezterm.target_triple:find("linux") ~= nil
 end
 
-local function is_windows()
+local function windowsp()
   return wezterm.target_triple:find("windows") ~= nil
 end
 
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 
-if is_mac() then
+if macp() then
   config.font_size = 18
   config.font = wezterm.font_with_fallback({
     { family = "SauceCodePro Nerd Font", weight = "Regular" },
     { family = "Hiragino Sans", weight = "Regular", scale = 1.0 }
   })
-elseif is_linux() then
-elseif is_windows() then
+elseif linuxp() then
+elseif windowsp() then
   config.font_size = 14
   config.font = wezterm.font_with_fallback({
     { family = "JetBrains Mono", weight = "Regular" },
@@ -47,7 +47,7 @@ config.show_new_tab_button_in_tab_bar = false
 
 local keys = {}
 
-if is_mac() then
+if macp() then
   -- macでバックスラッシュが入力できない問題の対策
   table.insert(keys, { key = '¥', mods = 'OPT', action = wezterm.action.SendKey { key = '\\', mods = 'NONE' }})
 end
