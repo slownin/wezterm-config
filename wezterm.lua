@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-local color_scheme = 'Solarized Light (Gogh)'
+config.colors = require 'colors.kanagawa-lotus'
 
 local function is_mac()
   return wezterm.target_triple:find("apple%-darwin") ~= nil
@@ -44,17 +44,6 @@ config.color_scheme = color_scheme
 config.use_fancy_tab_bar = false
 --config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
-
--- タブの色をカラースキームと同じにする
-local scheme_def = wezterm.color.get_builtin_schemes()[color_scheme]
-config.colors = {
-  tab_bar = {
-    active_tab = {
-      bg_color = scheme_def.background,
-      fg_color = scheme_def.foreground,
-    }
-  }
-}
 
 local keys = {}
 
