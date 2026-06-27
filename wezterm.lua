@@ -23,7 +23,7 @@ end
 config.automatically_reload_config = true
 
 -- 終了確認するか
-config.window_close_confirmation = "NeverPrompt"
+--config.window_close_confirmation = "NeverPrompt"
 
 -- 色
 config.colors = require 'colors.kanagawa-lotus'
