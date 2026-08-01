@@ -26,7 +26,8 @@ config.automatically_reload_config = true
 --config.window_close_confirmation = "NeverPrompt"
 
 -- 色
-config.colors = require 'colors.kanagawa-lotus'
+--config.colors = require 'colors.kanagawa-lotus'
+config.color_scheme = 'Kanagawa (Gogh)'
 
 -- フォント
 if macp() then
